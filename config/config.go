@@ -13,8 +13,8 @@ type viperConfig struct {
 
 func NewViperConfig() interfaces.IConfig {
 	config := viperConfig{viper: viper.New()}
-	config.initialize()
 	config.setDefaults()
+	config.initialize()
 	return &config
 }
 
@@ -26,6 +26,7 @@ func (c *viperConfig) initialize() {
 	c.viper.SetConfigName("config")
 	c.viper.SetConfigType("yaml")
 	c.viper.AddConfigPath(".")
+	c.viper.AutomaticEnv()
 }
 func (c *viperConfig) GetDatabasePath() string {
 	return c.viper.GetString("database.path")

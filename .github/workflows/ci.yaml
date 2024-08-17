@@ -10,6 +10,8 @@ jobs:
   validate:
     permissions:
       contents: read
+      actions: read
+      checks: write
     uses: curium-rocks/flows/.github/workflows/golang.yml@main
   image:
     permissions:

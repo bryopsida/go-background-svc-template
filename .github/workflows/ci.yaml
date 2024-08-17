@@ -8,8 +8,15 @@ on:
       - main
 jobs:
   validate:
+    permissions:
+      contents: read
     uses: curium-rocks/flows/.github/workflows/golang.yml@main
   image:
+    permissions:
+      packages: write
+      security-events: write
+      id-token: write
+      contents: read
     needs:
       - validate
     uses: curium-rocks/flows/.github/workflows/oci-build-image.yml@main

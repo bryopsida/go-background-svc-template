@@ -5,3 +5,9 @@ build:
 
 image:
 	docker build -t ghcr.io/bryopsida/go-background-svc-template:local .
+
+test:
+	go test -v ./...
+	
+lint:
+	golangci-lint run

@@ -11,3 +11,6 @@ test:
 	
 lint:
 	golangci-lint run
+	go install golang.org/x/lint/golint@latest
+	golint ./...
+	go vet ./...

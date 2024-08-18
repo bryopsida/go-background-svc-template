@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"testing"
 
+	"github.com/bryopsida/go-background-svc-template/interfaces"
 	"github.com/dgraph-io/badger"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -38,14 +39,14 @@ func TestBadgerNumberRepository_Save(t *testing.T) {
 	repo := NewBadgerNumberRepository(db)
 
 	// Create a sample number
-	number := Number{ID: "1", Number: 42}
+	number := interfaces.Number{ID: "1", Number: 42}
 
 	// Save the number
 	err = repo.Save(number)
 	assert.NoError(t, err)
 
 	// Verify the number was saved
-	var savedNumber Number
+	var savedNumber interfaces.Number
 	err = db.View(func(txn *badger.Txn) error {
 		item, err := txn.Get([]byte(number.ID))
 		if err != nil {
@@ -73,7 +74,7 @@ func TestBadgerNumberRepository_FindByID(t *testing.T) {
 	repo := NewBadgerNumberRepository(db)
 
 	// Create a sample number
-	number := Number{ID: "1", Number: 42}
+	number := interfaces.Number{ID: "1", Number: 42}
 
 	// Save the number
 	err = repo.Save(number)
@@ -100,14 +101,14 @@ func TestBadgerNumberRepository_DeleteByID(t *testing.T) {
 	repo := NewBadgerNumberRepository(db)
 
 	// Create a sample number
-	number := Number{ID: "1", Number: 42}
+	number := interfaces.Number{ID: "1", Number: 42}
 
 	// Save the number
 	err = repo.Save(number)
 	require.NoError(t, err)
 
 	// Verify the number was saved
-	var savedNumber Number
+	var savedNumber interfaces.Number
 	err = db.View(func(txn *badger.Txn) error {
 		item, err := txn.Get([]byte(number.ID))
 		if err != nil {

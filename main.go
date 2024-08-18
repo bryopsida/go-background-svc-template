@@ -29,9 +29,9 @@ func main() {
 	ctx, cancel := context.WithCancel(context.Background())
 	repo := repositories.NewBadgerNumberRepository(db)
 	// run routine 1
-	go incrementor.Increment(ctx, &repo)
+	go incrementor.Increment(ctx, repo)
 	// run routine 2
-	go incrementor.Print(ctx, &repo)
+	go incrementor.Print(ctx, repo)
 
 	// wait for signal, then cancel context and exit
 	sigChan := make(chan os.Signal, 1)

@@ -9,6 +9,7 @@ import (
 	"github.com/dgraph-io/badger"
 )
 
+// GetDatabase returns a badger database instance
 func GetDatabase(config interfaces.IConfig) (*badger.DB, error) {
 	dbPath := config.GetDatabasePath()
 	dbDir := path.Dir(dbPath)

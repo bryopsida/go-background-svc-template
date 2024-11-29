@@ -4,6 +4,7 @@ go 1.22.6
 
 require (
 	github.com/dgraph-io/badger v1.6.2
+	github.com/dgraph-io/badger/v4 v4.5.0
 	github.com/spf13/viper v1.19.0
 )
 
@@ -23,7 +24,6 @@ require (
 )
 
 require (
-	github.com/dgraph-io/badger/v4 v4.5.0
 	github.com/fsnotify/fsnotify v1.7.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/magiconair/properties v1.8.7 // indirect

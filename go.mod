@@ -4,7 +4,7 @@ go 1.22.6
 
 require (
 	github.com/dgraph-io/badger v1.6.2
-	github.com/spf13/viper v1.20.0
+	github.com/spf13/viper v1.20.1
 )
 
 require (

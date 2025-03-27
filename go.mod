@@ -3,7 +3,7 @@ module github.com/bryopsida/go-background-svc-template
 go 1.22.6
 
 require (
-	github.com/dgraph-io/badger v1.6.2
+	github.com/dgraph-io/badger/v4 v4.6.0
 	github.com/spf13/viper v1.20.1
 )
 
